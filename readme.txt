@@ -1,8 +1,4 @@
->--------------<
-Proyecto LISTAS
->--------------<
-
-Autores: Francisco Javier Mesa Martín & David Salguero Carrasco
+# Translator - LISTAS
 
 Este proyecto consiste en la elaboración de un traductor cuya misión sea la de traducir un lenguaje ficticio denominado "LISTAS" a C++. En la documentación en formato PDF que se puede encontrar en este mismo repositorio se aportan más detalles sobre el trabajo desarrollado.
 
