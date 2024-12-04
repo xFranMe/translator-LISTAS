@@ -1,6 +1,6 @@
 # Translator - LISTAS
 
-:warning: Except for this README file, the rest of documentation (internal and Wiki) is written in Spanish.
+:warning: Except for this README file, the rest of documentation (internal and [external](https://github.com/xFranMe/translator-LISTAS/blob/main/Doc_TranslatorLISTAS.pdf)) is written in Spanish.
 
 ## What is this
 
