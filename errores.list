@@ -1,0 +1,77 @@
+#Fichero de ejemplo con todos los errores semánticos controlados y gran parte de los errores sintácticos
+
+LISTAS
+
+ListaEnteros {1 2 3 4} 	#Error sintáctico: falta el '='
+ListaEnteros = 1, 2, 3, 4} 	#Error sintáctico: falta '{'
+ListaEnteros = {1, 2, 3 4 	#Error sintáctico: falta '}'
+ListaEnteros = {1 2 3 4} 	#Error sintáctico: faltan las ','
+ListaEnteros = {1, 2, 3}
+ListaEnteros = {4.5, 6.8} 	#Error semántico: la lista 'ListaEnteros' ya está definida
+ListaRango = {2..4}		#Error sintáctico: los '..' no pueden ir pegados a los valores que definen el rango
+ListaRango = {2 .. 4.}		#Error semántico: el rango debe definirse con expresiones enteras
+ListaRango = {2 .. 1}		#Error semántico: el valor de inicio del rango debe ser menor o igual que el valor final
+ListaRango = {i .. 4}		#Error semántico: no es posible emplear identificadores en las expresiones enteras que determinan un rango al definir listas
+ListaRango = {1 .. 5}
+ListaReales = {.1, j+0.5}	#Error semántico: no es posible emplear identificadores junto a expresiones numéricas en la definición de listas
+ListaReales = {.1, j}		#Error semántico: no es posible insertar un identificador en una lista definida sobre valores no identificadores
+ListaReales = {1+1, 1.}	#Error semántico: no es posible insertar un valor real en una lista definida sobre valores no reales
+ListaReales = {1., 1+1}	#Error semántico: no es posible insertar un valor entero en una lista definida sobre valores no enteros
+ListaReales = {1., 2., 3., }	#Error sintáctico: hay una coma al final, al lado de la llave de cierre, sin un valor en medio
+ListaReales = {1., 0.5+.7, 4.6}
+ListaLogicos = {1<2, x}	#Error sintáctico: se emplea un identificador como valor de una lista lógica
+ListaLogicos = {1<x}		#Error semántico: no es posible emplear identificadores en expresiones lógicas al definir una lista
+listaLogicos = {cierto, falso, 1<2}	#Error sintáctico: el nombre de una lista debe comenzar con una letra mayúscula
+ListaLogicos = {cierto, falso, 1<2}
+ListaId = {lunes, Martes}	#Error sintáctico: los identificadores que son valores de una lista deben empezar por minúscula
+ListaId = {jueves, viernes}	
+ListaA = {1} ListaB = {2}	#Error sintáctico: en una misma línea no puede definirse más de una lista
+
+
+VARIABLES
+
+entero i;			#Error sintáctico: 'entero' no constituye un tipo de variable
+Entero i, j;
+ListaEnteros num		#Error sintáctico: falta el ';'
+ListaEnteros num, num2		#Error sintáctico: falta el ';'
+ListaEnteros num num2;		#Error sintáctico: falta la ','
+ListaDias dia;			#Error semántico: la lista 'ListaDias' no está definida
+ListaId dia;
+ListaEnteros numeros;
+ListaReales numeros;		#Error semántico: la variable 'numeros' ya está definida
+Logico bandera;
+Real z;
+
+INICIO # Empieza el programa
+
+i 5;				#Error sintáctico: falta '<-'
+i <- 5				#Error sintáctico: falta ';'
+i <- numeros + 1;		#Error semántico: variables de tipo lógico o lista no pueden aparecer en expresiones
+numeros <- primero(LEnteros);	#Error semántico: la lista referenciada (LEnteros) no está definida
+numeros <- ultimo(ListaEnteros);
+numeros <- enesimo(ListaEnteros, 4); 	#Error semántico: el índice introducido en la función se encuentra fuera de rango -> [1, tamaño lista]
+numeros <- enesimo(ListaEnteros, 2.);	#Error semántico: el índice introducido debe tratarse de una expresión aritmética de tipo entero
+numeros <- enesimo(ListaEnteros, 2/0); #Error semántico: división por 0
+					#Error semántico: el índice introducido en la función no es correcto
+i <- 1.*2;			#Error semántico: el tipo de 'i' es entero y no se le puede asignar un valor de tipo real
+a <- 1%1;			#Error semántico: el identificador 'a' no se ha definido y no se puede operar con él
+i <- cierto;			#Error semántico: el tipo de 'i' es entero y no se le puede asignar un valor de tipo booleano
+i <- primero(ListaEnteros);	#Error semántico: el identificador 'i' no es del tipo lista
+dia <- primero(ListaEnteros);	#Error semántico: la lista sobre la que se ha definido el identificador 'dia' (ListaId) no coincide con la lista referenciada (ListaEnteros)
+i <- b / 6;			#Error semántico: la variable 'b' no está definida y no se puede operar con ella
+i <- 4 % 0;			#Error semántico: % con división por 0
+i <- 4. % 2;			#Error semántico: se usa la operación % con operandos reales
+Escribir "Hola");		#Error sintáctico: falta '('
+Escribir("Adiós";		#Error sintáctico: falta ')'
+Escribir(1, 2 4);		#Error sintáctico: falta una ','
+Si()[				#Error sintáctico: falta la condición
+
+]
+Si(cierto)			#Error sintáctico: falta '['			
+]
+Si(1<2)[
+	NuevaLinea;]		#Error sintáctico: '[' debe ir en una nueva línea
+Escribir("Fin del programa");
+
+FIN
+

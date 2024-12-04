@@ -1,0 +1,162 @@
+# Fichero de ejemplo con condicionales anidados
+# Para una lectura más fluida de los condicionales, se han empleado valores lógicos simples (cierto o falso) en las condiciones 
+
+LISTAS
+
+VARIABLES
+
+INICIO # Empieza el programa
+
+#------------------------------------------------------------------ 
+Escribir("Primer condicional anidado - Resultado esperado: 2 & 3");
+#------------------------------------------------------------------ 
+Si (cierto) 
+[
+	Si(falso) [
+		Escribir(1);
+	]
+	Si_no[
+		Escribir(2);
+	]
+	Escribir(3);
+]
+Si_no [
+	Escribir(4);
+]
+
+#------------------------------------------------------------------ 
+Escribir("Segundo condicional - Resultado esperado: 4 & 5");
+#------------------------------------------------------------------
+Si (falso) 
+[
+	Si(falso) [
+		Escribir(1);
+	]
+	Si_no[
+		Escribir(2);
+	]
+	Escribir(3);
+]
+Si_no [
+	Si(cierto)[
+		Escribir(4);
+	]
+	Escribir(5);
+]
+
+#------------------------------------------------------------------ 
+Escribir("Tercer condicional - Resultado esperado: Nada");
+#------------------------------------------------------------------
+Si (cierto) 
+[
+	Si(cierto) [
+		Si(falso)[
+			Escribir(1);
+		] Si_no[
+			Si(falso)[
+				Escribir(2);
+			]
+		]
+	]
+	Si_no[
+		Escribir(3);
+	]
+]
+Si_no [
+	Si(cierto)[
+		Escribir(4);
+	]
+	Escribir(5);
+]
+
+#------------------------------------------------------------------ 
+Escribir("Cuarto condicional - Resultado esperado: 1, 6, 7 & 8");
+#------------------------------------------------------------------
+Si (cierto) 
+[
+	Si(cierto) [
+		Escribir(1);
+		Si(falso)[
+			Escribir(2);
+			Si(cierto)[
+				Escribir(3);
+			]
+			Si_no[
+				Escribir(4);
+			]
+			Escribir(5);
+		] Si_no[
+			Escribir(6);
+			Si(cierto)[
+				Escribir(7);
+			]
+			Si(cierto)[
+				Si(cierto)[
+					Escribir(8);
+				]
+			] Si_no [
+				Escribir(9);
+			]
+		]
+	]
+	Si_no[
+		Escribir(10);
+	]
+]
+Si_no [
+	Si(cierto)[
+		Escribir(11);
+	]
+]
+
+#------------------------------------------------------------------ 
+Escribir("Quinto condicional - Resultado esperado: 12, 14, 15");
+#------------------------------------------------------------------
+Si (falso) 
+[
+	Si(cierto) [
+		Escribir(1);
+		Si(falso)[
+			Escribir(2);
+			Si(cierto)[
+				Escribir(3);
+			]
+			Si_no[
+				Escribir(4);
+			]
+			Escribir(5);
+		] Si_no[
+			Escribir(6);
+			Si(cierto)[
+				Escribir(7);
+			]
+			Si(cierto)[
+				Si(cierto)[
+					Escribir(8);
+				]
+			] Si_no [
+				Escribir(9);
+			]
+		]
+	]
+	Si_no[
+		Escribir(10);
+	]
+]
+Si_no [
+	Si(falso)[
+		Escribir(11);
+	] Si_no [
+		Escribir(12);
+		Si(falso)[
+			Escribir(13);
+		] Si_no [
+			Escribir(14);
+			Si(cierto)[
+				Escribir(15);
+			]
+		]
+	]
+]
+FIN
+

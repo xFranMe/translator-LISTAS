@@ -1,0 +1,87 @@
+# Fichero de ejemplo de la versión básica sin errores, con más expresiones, líneas adicionales,
+# tabulaciones distintas. También se incluye el uso de asignaciones con elementos de las listas
+# El resultado debería ser el mismo que en basica.list, excepto algunos saltos de línea adicionales
+# que se han incluido. 
+
+
+LISTAS
+
+# Los nombres de estas listas deben empezar por mayúsculas
+Dias = {lunes, martes, miercoles, jueves, viernes, sabado, domingo} # los valores serán identificadores en minúsculas
+
+# Los valores también pueden ser enteros, reales o valores lógicos
+Primos={1+1, 2+1, 10/2, 8-1, 23%12, 1+2*3+6}
+
+IVA ={12/3., 10., 21.}
+ 
+Bool = {(7 > 3), 7 <= 3, cierto <> falso, (2 < 5) y (5 < 2), no falso}
+
+
+Meses= {-1+2 .. 2*(1+5)}  # rango de valores solo para enteros, solo ascendentes
+
+
+VARIABLES
+Dias d; # se pueden definir variables de las listas anteriores
+	
+Primos p; # las variables empiezan por minúsculas
+	
+Meses m, n; 
+Dias cita;
+
+Entero i,j; # También se pueden definir variables de tipos enteros, reales y lógicos
+
+IVA xx, yy, zz; Logico es;
+	# ¡Cuidado! No se pueden usar palabras reservadas como identificadores (y, o, no, etc)
+
+
+	Entero limite;
+
+
+
+INICIO # Empieza el programa
+
+	limite <- 4;
+	limite <- limite + 1;
+	Escribir ("Esto es una cadena constante que se escribe tal cual.");
+	NuevaLinea; # Esto escribe un salto de línea
+d <- primero(Dias);
+p<- primero (Primos);
+xx <-ultimo(IVA);
+	Escribir (d, " ", p, " ", primero(IVA));
+	NuevaLinea;
+	d <- ultimo(Dias);
+	Escribir (d, " ", ultimo (Primos), " ", xx); NuevaLinea;
+	NuevaLinea;
+	i <- 1 ;
+	Escribir(enesimo(Dias, 2*i/2)); NuevaLinea;
+	i <-3-1;
+
+Escribir(enesimo(Dias, 0+i)); NuevaLinea;
+i <- i + 1;
+Escribir(enesimo(Dias, i)); NuevaLinea;
+d <- enesimo(Dias,i+1);
+Escribir(d); NuevaLinea;
+Escribir(enesimo(Dias, -1+2*3))    ; 
+
+
+
+	NuevaLinea;
+	Si (i-1 <= limite-2+1) 
+	[
+		Escribir("Dias laborables");
+		NuevaLinea; 
+		NuevaLinea;
+	]
+	Si_no [
+		Escribir("Fin de semana");
+		
+NuevaLinea; 
+		NuevaLinea;
+		
+	]
+	NuevaLinea; Escribir("Adios");
+NuevaLinea;
+FIN
+
+# Y con esto acaba el programa
+
